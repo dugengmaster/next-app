@@ -1,22 +1,20 @@
 import { Box, BoxProps, Grid, Stack, styled, Typography } from "@mui/material";
 import Link from "next/link";
 
-const StyledItemsContainer = styled("nav")<BoxProps>({
+export const StyledItemsContainer = styled("nav")<BoxProps>({
   margin: "8px 0",
   color: "rgb(40, 40, 40)",
 });
 
-const StyledNavItem = styled(Stack)({
+export const StyledNavItem = styled(Stack)({
   padding: "4px",
 });
 
-const StyledNavLink = styled(Link)({
+export const StyledNavLink = styled(Link)({
   color: "inherit",
   textDecoration: "none",
   margin: "4px 0",
 });
-
-const StyledNavItemContent = styled(Grid)({});
 
 interface StyledContentGridProps {
   toggled: boolean;
@@ -26,13 +24,13 @@ interface StyledFadeElementProps {
   toggled: boolean;
 }
 
-const getFadeInOutStyles = (toggled: boolean) => ({
+export const getFadeInOutStyles = (toggled: boolean) => ({
   opacity: toggled ? 1 : 0,
   transition: "opacity 0.2s ease",
   transitionDelay: toggled ? "0.1s" : "0s",
 });
 
-const StyledContentGrid = styled(Stack)<StyledContentGridProps>(
+export const StyledContentGrid = styled(Stack)<StyledContentGridProps>(
   ({ toggled }) => ({
     display: "grid",
     gridTemplateColumns: toggled ? "1fr auto" : "0fr 0fr",
@@ -43,7 +41,7 @@ const StyledContentGrid = styled(Stack)<StyledContentGridProps>(
   })
 );
 
-const StyledText = styled(Typography)<StyledFadeElementProps>(
+export const StyledText = styled(Typography)<StyledFadeElementProps>(
   ({ toggled }) => ({
     overflow: "hidden",
     whiteSpace: "nowrap",
@@ -52,7 +50,7 @@ const StyledText = styled(Typography)<StyledFadeElementProps>(
   })
 );
 
-const StyledArrowContainer = styled(Box)<StyledFadeElementProps>(
+export const StyledArrowContainer = styled(Box)<StyledFadeElementProps>(
   ({ toggled }) => ({
     justifySelf: "end",
     display: "flex",
@@ -60,13 +58,3 @@ const StyledArrowContainer = styled(Box)<StyledFadeElementProps>(
     ...getFadeInOutStyles(toggled),
   })
 );
-
-export {
-  StyledItemsContainer,
-  StyledNavItem,
-  StyledNavLink,
-  StyledNavItemContent,
-  StyledContentGrid,
-  StyledText,
-  StyledArrowContainer,
-};

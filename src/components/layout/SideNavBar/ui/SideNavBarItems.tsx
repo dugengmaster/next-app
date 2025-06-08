@@ -31,8 +31,10 @@ export const SideNavBarItems: React.FC<SideNavBarItemsProps> = ({ items }) => {
 
               {/* Text and Arrow Container */}
               <StyledContentGrid toggled={toggled}>
+                {/* Text */}
                 <StyledText toggled={toggled}>{item.label}</StyledText>
 
+                {/* Arrow Container */}
                 {item.children && item.children.length > 0 && (
                   <StyledArrowContainer toggled={toggled}>
                     <KeyboardArrowUpIcon />
@@ -40,11 +42,12 @@ export const SideNavBarItems: React.FC<SideNavBarItemsProps> = ({ items }) => {
                 )}
               </StyledContentGrid>
             </StyledNavItem>
-            {/* 子路由區塊 - 常駐展開 */}
+
+            {/* subItems */}
             {item.children && item.children.length > 0 && (
               <SideNavBarSubItems
                 items={item.children}
-                isExpanded={true} // 常駐展開
+                isExpanded={true}
                 parentPath={item.href}
               />
             )}
