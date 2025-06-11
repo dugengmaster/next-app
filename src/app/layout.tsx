@@ -7,7 +7,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/theme";
 import { CssBaseline, Box } from "@mui/material";
 import { Header, SideBar, SideNavBar } from "@/components/layout";
-import { useNavStore } from "@/stores/useNavStore";
+import { useSideNavStore } from "@/stores/useNavStore";
 
 export default function RootLayout({
   children,
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   // 在 Layout 層級管理 nav 狀態
-  const { toggled } = useNavStore();
+  const { isCollapsed } = useSideNavStore();
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -35,7 +35,7 @@ export default function RootLayout({
                 height: "100vh",
                 display: "grid",
                 gridTemplateRows: "auto 1fr",
-                gridTemplateColumns: toggled ? "12em 1fr" : "3em 1fr",
+                gridTemplateColumns: isCollapsed ? "12em 1fr" : "3em 1fr",
                 transition: "grid-template-columns 0.3s ease-in-out",
                 overflow: "hidden",
               }}
@@ -44,7 +44,7 @@ export default function RootLayout({
               <Header />
 
               {/* 側邊導航欄 */}
-              <SideNavBar isOpen={toggled} />
+              <SideNavBar isOpen={isCollapsed} />
 
               {/* 主內容區域 - 可滾動 */}
               <Box
