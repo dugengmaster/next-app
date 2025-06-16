@@ -5,14 +5,12 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const [count, setCount] = useState(0)
   const [inputValue, setInputValue] = useState('')
-  const [mountTime] = useState(() => new Date().toLocaleTimeString())
   
   // 更詳細的生命週期追蹤
-  console.log('🔄 Home 組件重新渲染了！', { count, inputValue, mountTime })
+  console.log('🔄 Home 組件重新渲染了！', { count, inputValue })
   
   // 追蹤組件掛載/卸載
   useEffect(() => {
-    console.log('🎯 Home 組件掛載了！時間:', mountTime)
     return () => {
       console.log('💀 Home 組件卸載了！')
     }
@@ -70,17 +68,6 @@ export default function Home() {
         >
           清空輸入
         </button>
-      </div>
-
-      {/* 時間戳測試 */}
-      <div className="border p-4 rounded bg-blue-50">
-        <h2 className="text-lg font-semibold mb-2">⏰ 組件掛載時間</h2>
-        <p className="text-sm">
-          組件首次掛載時間：<span className="font-bold">{mountTime}</span>
-        </p>
-        <p className="text-xs text-gray-600 mt-1">
-          如果這個時間在 toggle 後改變，代表組件重新掛載了
-        </p>
       </div>
 
       {/* 測試說明 */}

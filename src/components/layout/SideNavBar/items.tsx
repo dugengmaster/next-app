@@ -1,4 +1,4 @@
-import { RoutesData } from "./types";
+import { RoutesData } from "@/types/navigation";
 import WifiIcon from "@mui/icons-material/Wifi";
 import HomeIcon from "@mui/icons-material/Home";
 import SettingsIcon from "@mui/icons-material/Settings";

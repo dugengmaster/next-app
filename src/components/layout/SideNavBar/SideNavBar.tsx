@@ -13,7 +13,7 @@ export const SideNavBar: React.FC<SideNavBarProps> = () => {
   return (
     <SideNavBarContainer>
       <ToggleButton />
-      <SideNavBarItems items={sideNavBarItems}></SideNavBarItems>
+      <SideNavBarItems routes={sideNavBarItems} />
     </SideNavBarContainer>
   );
 };

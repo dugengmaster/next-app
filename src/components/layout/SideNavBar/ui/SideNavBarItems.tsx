@@ -18,10 +18,10 @@ import {
 // import { SideNavBarSubItems } from "./SideNavBarSubItems";
 
 interface SideNavBarItemsProps {
-  items: RoutesData[];
+  routes: RoutesData[];
 }
 
-export const SideNavBarItems: React.FC<SideNavBarItemsProps> = ({ items }) => {
+export const SideNavBarItems: React.FC<SideNavBarItemsProps> = ({ routes }) => {
   const pathname = usePathname();
   const { isCollapsed } = useSideNavStore();
   const { toggleItem, isItemExpanded } = useMenuExpansionStore();
@@ -30,7 +30,7 @@ export const SideNavBarItems: React.FC<SideNavBarItemsProps> = ({ items }) => {
     if (isCollapsed) return;
 
     const findParentItem = (currentPath: string) => {
-      for (const item of items) {
+      for (const item of routes) {
         if (item.children && item.children.length > 0) {
           if (
             hasMatchingChildRoute(item, currentPath) &&
@@ -54,29 +54,29 @@ export const SideNavBarItems: React.FC<SideNavBarItemsProps> = ({ items }) => {
   return (
     <StyledItemsContainer>
       <StyledNavItem direction="column">
-        {items.map((item) => {
-          const isExpanded = isItemExpanded(item.id);
-          const isCurrent = isCurrentRoute(item, pathname);
+        {routes.map((route) => {
+          const isExpanded = isItemExpanded(route.id);
+          const isCurrent = isCurrentRoute(route, pathname);
 
           return (
-            <StyledNavLink key={item.id} href={item.href}>
+            <StyledNavLink key={route.id} href={route.href}>
               <StyledNavItem direction="row" isCurrent={isCurrent}>
                 {/* Icon */}
                 <StyledIconContainer isCurrent={isCurrent}>
-                  {item.icon}
+                  {route.icon}
                 </StyledIconContainer>
 
                 {/* Text and Arrow Container */}
                 <StyledContentGrid isVisible={isCollapsed}>
                   {/* Text */}
-                  <StyledText isVisible={isCollapsed}>{item.label}</StyledText>
+                  <StyledText isVisible={isCollapsed}>{route.label}</StyledText>
 
                   {/* Arrow Container */}
-                  {item.children && item.children.length > 0 && (
+                  {route.children && route.children.length > 0 && (
                     <StyledArrowContainer
                       isVisible={!isCollapsed}
                       isExpanded={isExpanded}
-                      onClick={(e) => handleArrowClick(e, item.id)}
+                      onClick={(e) => handleArrowClick(e, route.id)}
                     >
                       <KeyboardArrowUpIcon />
                     </StyledArrowContainer>
