@@ -1,17 +1,17 @@
 import { create } from "zustand";
 
 interface SideNavState {
-  isCollaped: boolean;
+  isCollapsed: boolean;
   toggleSideBar: () => void;
-  setSideBar: (collaped: boolean) => void;
+  setSideBar: (collapsed: boolean) => void;
 }
 
 export const useSideNavStore = create<SideNavState>((set) => ({
-  isCollaped: true,
+  isCollapsed: true,
 
-  toggleSideBar: () => set((state) => ({ isCollaped: !state.isCollaped })),
+  toggleSideBar: () => set((state) => ({ isCollapsed: !state.isCollapsed })),
 
-  setSideBar(collaped: boolean) {
-    set({ isCollaped: collaped });
+  setSideBar(collapsed: boolean) {
+    set({ isCollapsed: collapsed });
   },
 }));

@@ -44,7 +44,7 @@ export default function RootLayout({
               <Header />
 
               {/* 側邊導航欄 */}
-              <SideNavBar isOpen={isCollapsed} />
+              <SideNavBar />
 
               {/* 主內容區域 - 可滾動 */}
               <Box

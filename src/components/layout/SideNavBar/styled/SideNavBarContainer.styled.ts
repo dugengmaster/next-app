@@ -1,7 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { Box, BoxProps, Paper } from "@mui/material";
 
-export const StyledAideContainer = styled("aside")<BoxProps>({
+export const StyledAsideContainer = styled("aside")<BoxProps>({
   padding: "4px",
 });
 

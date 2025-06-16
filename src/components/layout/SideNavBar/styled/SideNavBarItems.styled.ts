@@ -82,6 +82,6 @@ export const StyledArrowContainer = styled(Box, {
   alignItems: "center",
   alignSelf: "center",
   transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
-  opacity: isVisible ? 0 : 1,
+  opacity: isVisible ? 1 : 0,
   transition: "transform 0.3s ease, opacity 0.2s ease",
 }));

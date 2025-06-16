@@ -3,7 +3,7 @@
 import React from "react";
 import Divider from "@mui/material/Divider";
 import {
-  StyledAideContainer,
+  StyledAsideContainer,
   StyledPaper,
   StyledToggleButtonContainer,
   StyledDividerContainer,
@@ -19,7 +19,7 @@ export const SideNavBarContainer: React.FC<SideNavBarContainerProps> = ({
   const [toggleButton, ...navigationItems] = React.Children.toArray(children);
 
   return (
-    <StyledAideContainer>
+    <StyledAsideContainer>
       <StyledPaper>
         {toggleButton && (
           <>
@@ -34,6 +34,6 @@ export const SideNavBarContainer: React.FC<SideNavBarContainerProps> = ({
         )}
         {navigationItems}
       </StyledPaper>
-    </StyledAideContainer>
+    </StyledAsideContainer>
   );
 };
